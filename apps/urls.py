@@ -1,13 +1,12 @@
 from django.urls import path, include
 
-from.pedidos.views import PedidosHome
 
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('clientes/', include('apps.clientes.urls')),
     path('produtos/', include('apps.produtos.urls')),
-    path('home/', PedidosHome.as_view(), name='pedidos__home'),
+    path('pedidos/', include('apps.pedidos.urls')),
 	path('login/', auth_views.LoginView.as_view(),{
 		'template_name': 'registration/login.html',
 		'redirect_authenticated_user': True,
